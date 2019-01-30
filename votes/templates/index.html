@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the index page
+{% endblock %}
+
+
+{% block body %}
+  <a href="{% url 'votes:candidate_create' %}"><input type="submit" value="Create New Candidate"></a> <br>
+  <a href="{% url 'votes:position_create' %}"><input type="submit" value="Create New Position"></a> <br>
+  <ol>
+  {% for vote in votes %}
+  <li>
+    <a href="{% url 'votes:candidate_detail' candidate.id %}">Post:{{ votes.candidate }}</a> <br>
+  </li>
+    {% endfor %}
+  </ol>
+  </br>
+{% endblock %}

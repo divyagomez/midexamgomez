@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+  this is the detail page
+{% endblock %}
+
+
+{% block body %}
+  Lastname: {{ candidate.lastname }} </br>
+  Firstname: {{ candidate.firstname }} </br>
+  Position: {{ candidate.position }} </br>
+
+  {% for vote in vote.votes.all %}
+    Votes: {{ votes.candidate }} </br>
+  {% endfor %}
+
+</br>
+
+  <a href="{% url 'votes:candidate_create' candidate.id %}"><input type="submit" value="Create"></a> <br>
+  <a href="{% url 'votes:candidate_update' candidate.id %}"><input type="submit" value="Update"></a> <br>
+  <a href="{% url 'votes:vote' vote.id %}"><input type="submit" value="Vote"></a> <br>
+
+{% endblock %}
